@@ -85,7 +85,7 @@ Ablations highlight the importance of the physics-informed prior, the benefit of
 - During inference, compute reconstruction error, mismatch, prior-alignment weights, Energy, fused score, and apply a global percentile threshold.
 - Report precision, recall, and F1 using the point-adjust protocol.
 
-> See `data_loader.py`, `model/PiTransformer.py`, and `main.py` for implementation details.
+> See `data_loader.py`, `model/PiTransformer.py`, `model/attn.py`, and `main.py` for implementation details.
 
 <!-- ## Citation
 If you find this work useful, please cite:
