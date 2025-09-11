@@ -1,0 +1,111 @@
+general:
+  data_dir: ../Data/
+  device: cuda
+  model_dir: /checkpoints
+
+datasets:
+  MSL:
+    data:
+      anomaly_ratio: 0.5
+      batch_size: 256
+      win_size: 100
+    model:
+      c_out: 55
+      e_layers: 3
+      enc_in: 55
+      d_model: 512
+      n_heads: 8
+      gamma: 2.177940397731684
+      sigma: 0.3877875730442906
+      lambda_smooth: 0.000139526
+    training:
+      lr: 0.000433847
+      n_epochs: 5
+      k: 4
+    testing:
+      temperature: 196
+
+  PSM:
+    data:
+      anomaly_ratio: 1
+      batch_size: 256
+      win_size: 100
+    model:
+      c_out: 25
+      e_layers: 2
+      enc_in: 25
+      d_model: 512
+      n_heads: 8
+      gamma: 2.4153183682233976
+      sigma: 0.7948055719106695
+      lambda_smooth: 0.00011447974383051658
+    training:
+      lr: 9.89849069921459e-05
+      n_epochs: 3
+      k: 5
+    testing:
+      temperature: 95.74006614816578
+
+  SMAP:
+    data:
+      anomaly_ratio: 0.5
+      batch_size: 512
+      win_size: 100
+    model:
+      c_out: 25
+      e_layers: 2
+      enc_in: 25
+      d_model: 512
+      n_heads: 8
+      gamma: 1.0684929511463208
+      sigma: 1.4235474116463611
+      lambda_smooth: 0.0005314283884009209
+    training:
+      lr: 2.5714076304061054e-08
+      n_epochs: 5
+      k: 2
+    testing:
+      temperature: 46.74230261931351
+
+  SMD:
+    data:
+      anomaly_ratio: 0.5
+      batch_size: 512
+      win_size: 100
+    model:
+      c_out: 38
+      e_layers: 2
+      enc_in: 38
+      d_model: 512
+      n_heads: 8
+      gamma: 1.728601285192961
+      sigma: 0.12441052617477748
+      lambda_smooth: 0.00018850982911946477
+    training:
+      lr: 1.2716929428843741e-05
+      n_epochs: 10
+      k: 1
+    testing:
+      temperature: 170.33686798485675
+
+  SWaT:
+    data:
+      anomaly_ratio: 0.5
+      batch_size: 256
+      win_size: 100
+    model:
+      c_out: 51
+      e_layers: 3
+      enc_in: 51
+      d_model: 512
+      n_heads: 8
+      gamma: 0.6312279572857437
+      sigma: 0.33877612405879015
+      lambda_smooth: 0.040139481140795734
+    training:
+      lr: 3.3236546583235925e-05
+      n_epochs: 3
+      k: 1
+    testing:
+      temperature: 137.34145375945985
+
