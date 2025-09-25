@@ -90,7 +90,7 @@ Ablations highlight the importance of the physics-informed prior, the benefit of
 ## Citation
 If you use our work, please cite using the following bibtex entry.
 ```bibtex
-@article{maleki2025pitransformerphysicsinformedattentionmechanism,
+@article{piTrans,
       title={Pi-Transformer: A Physics-informed Attention Mechanism for Time Series Anomaly Detection}, 
       author={Sepehr Maleki and Negar Pourmoazemi},
       year={2025},
