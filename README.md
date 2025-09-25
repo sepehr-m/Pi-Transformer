@@ -87,15 +87,19 @@ Ablations highlight the importance of the physics-informed prior, the benefit of
 
 > See `data_loader.py`, `model/PiTransformer.py`, `model/attn.py`, and `main.py` for implementation details.
 
-<!-- ## Citation
-If you find this work useful, please cite:
+## Citation
+If you use our work, please cite using the following bibtex entry.
 ```bibtex
-@article{PiTran,
-  title={Pi-Transformer: A Physics-informed Attention Mechanism for Time Series Anomaly Detection},
-  author={Maleki, Sepehr and Pourmoazemi, Negar},
-  year={2025},
+@article{maleki2025pitransformerphysicsinformedattentionmechanism,
+      title={Pi-Transformer: A Physics-informed Attention Mechanism for Time Series Anomaly Detection}, 
+      author={Sepehr Maleki and Negar Pourmoazemi},
+      year={2025},
+      eprint={2509.19985},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2509.19985}, 
 }
-``` -->
+```
 
 ## Acknowledgement
 The data loader and early-stopping code are obtained from the [Anomaly Transformer](https://github.com/thuml/Anomaly-Transformer).
