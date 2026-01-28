@@ -1,7 +1,10 @@
 # Pi-Transformer
-A physics-informed transformer for multivariate time-series anomaly detection.
+A prior-informed dual-attention transformer for multivariate time-series anomaly detection.
 
 ![Architecture](Figures/architecture.png)
+
+## Paper
+**Pi-Transformer: A Prior-Informed Dual-Attention Model for Multivariate Time-Series Anomaly Detection** (Sepehr Maleki, Negar Pourmoazemi; preprint submitted to Elsevier, Jan 28, 2026). See `manuscript.pdf` for the full paper.
 
 ## Overview
 **Pi-Transformer** combines a data-driven *series attention* pathway with a smoothly evolving *prior attention* that encodes temporal invariants such as scale-related self‑similarity and phase synchrony. At inference, reconstruction evidence is modulated by **prior-alignment weights** to produce an **Energy** signal, complemented by a **mismatch** stream derived from the symmetric divergence between series and prior attentions. Robust normalisation and a soft‑OR fusion yield a single score that is thresholded globally. Stride‑1 overlapping windows are used for inference and evaluation.
@@ -9,7 +12,7 @@ A physics-informed transformer for multivariate time-series anomaly detection.
 Pi-Transformer is trained with a reconstruction objective plus regularisation that stabilises the prior while keeping it meaningfully distinct from the series pathway. A teacher–student alternation with stop‑gradient prevents collapse and preserves a measurable series–prior gap that is used at inference.
 
 ## Key ideas
-- Dual-pathway attention: data-driven **series attention** + physics-informed **prior attention**.
+- Dual-pathway attention: data-driven **series attention** + **prior-informed prior attention** (an inductive-bias temporal reference, not a governing-equation constraint).
 - **Prior-alignment weights** from a time-wise softmax over the negatives of the series–prior divergence.
 - **Energy** signal: alignment-weighted reconstruction evidence.
 - **Mismatch** stream: aggregated symmetric divergence across layers and heads.
@@ -74,7 +77,7 @@ Pi-Transformer achieves state-of-the-art or highly competitive F1 on five benchm
 
 ![Benchmarking](Figures/benchmarking.png)
 
-Ablations highlight the importance of the physics-informed prior, the benefit of multi‑head priors for stability, and balanced depth/width.
+Ablations highlight the importance of the prior-informed attention pathway, the benefit of multi‑head priors for stability, and balanced depth/width.
 
 ![Ablation](Figures/ablation.png)
 
@@ -83,6 +86,7 @@ Ablations highlight the importance of the physics-informed prior, the benefit of
 - Create overlapping windows of length `L` with stride 1.
 - Train on nominal data/splits.
 - During inference, compute reconstruction error, mismatch, prior-alignment weights, Energy, fused score, and apply a global percentile threshold.
+- Map window-level scores to the timeline by end-alignment and average contributions when multiple windows cover the same time index.
 - Report precision, recall, and F1 using the point-adjust protocol.
 
 > See `data_loader.py`, `model/PiTransformer.py`, `model/attn.py`, and `main.py` for implementation details.
